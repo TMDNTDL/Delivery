@@ -63,7 +63,8 @@ const foodsList = [
 ]
 
 const App = () => {
-
+  // trigger action exec
+  // 1. useDispatch -> dispatch 2. actionCreator 3.useEffect
   return (
     <div className="home">
       {/* 导航 */}
