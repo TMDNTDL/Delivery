@@ -15,7 +15,7 @@ const Menu = () => {
           "unit": "10串",
           "food_tag_list": ["点评网友推荐"],
           "price": 90,
-          "picture": "https://zqran.gitee.io/images/waimai/8078956697.jpg",
+          "picture": "https://i.ytimg.com/vi/qD5meFtkT8Q/maxresdefault.jpg",
           "description": "",
           "tag": "318569657"
         },
@@ -27,7 +27,7 @@ const Menu = () => {
           "unit": "1人份",
           "food_tag_list": [],
           "price": 39,
-          "picture": "https://zqran.gitee.io/images/waimai/7384994864.jpg",
+          "picture": "https://www.hangheung.com.hk/cdn/shop/articles/a768a8953f9d16a1ab3a8834e2072c8b.jpg?v=1606893667",
           "description": "",
           "tag": "318569657"
         },
@@ -39,7 +39,7 @@ const Menu = () => {
           "unit": "1人份",
           "food_tag_list": [],
           "price": 34.32,
-          "picture": "https://zqran.gitee.io/images/waimai/2305772036.jpg",
+          "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCBWX49EzqbiVTyVTxEAsKSzf18V1vaPOjxQ&s",
           "description": "主料：大米、鸡腿、菜心、胡萝卜",
           "tag": "318569657"
         },
@@ -51,7 +51,7 @@ const Menu = () => {
           "unit": "1人份",
           "food_tag_list": ["“口味好,包装很好～点赞”"],
           "price": 34.32,
-          "picture": "https://zqran.gitee.io/images/waimai/2233861812.jpg",
+          "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa3NLgDxVLR7OuHREWBhE5tvqUqamDk0DMbw&s",
           "description": "酸汤莜面鱼鱼，主料：酸汤、莜面 肉夹馍，主料：白皮饼、猪肉",
           "tag": "318569657"
         }
