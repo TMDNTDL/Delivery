@@ -8,7 +8,7 @@ const FoodsCategory = ({ name, foods }) => {
         <dt className="cate-title">{name}</dt>
 
         {foods.map(item => {
-          return <FoodItem key={item.id} {...item} />
+          return <FoodItem key ={item.id} {...item} />
         })}
       </dl>
     </div>

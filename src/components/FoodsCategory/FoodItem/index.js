@@ -38,7 +38,9 @@ const Foods = ({
             {price}
           </div>
           <div className="goods-count">
-            <span className="plus"></span>
+            <span className="plus">
+              <button className="button add-button">+</button>
+            </span>
           </div>
         </div>
       </div>
