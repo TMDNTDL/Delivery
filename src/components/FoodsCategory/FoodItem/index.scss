@@ -42,10 +42,12 @@
   }
   .goods-count {
     display: flex;
-    height: 20px;
-    justify-content: space-between;
+    height: 25px;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
+    margin-left: 15px;
+    gap: 10px
   }
   .goods-detail {
     display: flex;
@@ -112,7 +114,7 @@
   .goods-sales-volume > :first-child {
     margin-right: 8px;
   }
-
+  
   .goods-price-count {
     display: flex;
     height: 20px;
@@ -133,11 +135,12 @@
     margin-right: 1px;
   }
   .button{
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
     display: flex;
     background-color: rgb(255, 253, 110);
     border: none;
+    border-color: #222426;
     color: black;
     padding: 5px;
     align-items: center;
@@ -147,7 +150,10 @@
     cursor: pointer;
   }
   .add-button{
-    
+    border-radius: 50%;
+    margin-top: 1px;
+  }
+  .sub-button{
     border-radius: 50%;
   }
 }
