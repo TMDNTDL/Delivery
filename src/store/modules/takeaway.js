@@ -1,6 +1,6 @@
 // edit Store
 import { createSlice } from "@reduxjs/toolkit"
-import { axios } from 'axios'
+import axios from 'axios'
 const foodsStore = createSlice({
     name: 'foods',
     initialState:{

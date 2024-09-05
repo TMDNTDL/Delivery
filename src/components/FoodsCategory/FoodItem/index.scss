@@ -132,4 +132,22 @@
     line-height: 14px;
     margin-right: 1px;
   }
+  .button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    background-color: rgb(255, 253, 110);
+    border: none;
+    color: black;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .add-button{
+    
+    border-radius: 50%;
+  }
 }

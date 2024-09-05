@@ -2,8 +2,10 @@ import NavBar from './components/NavBar'
 import Menu from './components/Menu'
 import Cart from './components/Cart'
 import FoodsCategory from './components/FoodsCategory'
-
+import { useDispatch } from 'react-redux'
+import { fetchFoodsList } from './store/modules/takeaway'
 import './App.scss'
+import { useEffect } from 'react'
 
 const foodsList = [
   {
@@ -65,6 +67,10 @@ const foodsList = [
 const App = () => {
   // trigger action exec
   // 1. useDispatch -> dispatch 2. actionCreator 3.useEffect
+  const dispatch =useDispatch()
+  useEffect(() =>{
+    dispatch(fetchFoodsList())
+  },[dispatch])
   return (
     <div className="home">
       {/* 导航 */}
@@ -89,7 +95,7 @@ const App = () => {
                   />
                 )
               })}
-            </div>
+            </div> 
           </div>
         </div>
       </div>
