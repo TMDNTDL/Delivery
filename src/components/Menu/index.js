@@ -3,6 +3,7 @@ import './index.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { changeActiveIndex } from '../../store/modules/takeaway'
+import { useRef } from 'react'
 
 const Menu = () => {
   const { foodsList, activeIndex } = useSelector(state => state.foods)
@@ -64,6 +65,21 @@ const Menu = () => {
   //   }
   // ]
   
+  
+  // defined reference
+  
+  
+  const categoryRefs = useRef(menus.reduce((acc,value) =>{
+    acc[value.name] = React.createRef();
+    return acc;
+  },{}))
+
+  const scroll=(index, menus) =>{
+    dispatch(changeActiveIndex(index))
+    categoryRefs.current[name].current.scrollIntoView({behavior:"smooth"})
+    
+  }
+
   const menus = foodsList.map(item => ({ tag: item.tag, name: item.name }))
   return (
     <nav className="list-menu">
@@ -71,7 +87,7 @@ const Menu = () => {
       {menus.map((item, index) => {
         return (
           <div
-            onClick={()=> dispatch(changeActiveIndex(index))}
+            onClick={()=> scroll(index,menus)}
             className={classNames(
               'list-menu-item',
               activeIndex === index && 'active'          
