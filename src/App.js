@@ -2,10 +2,11 @@ import NavBar from './components/NavBar'
 import Menu from './components/Menu'
 import Cart from './components/Cart'
 import FoodsCategory from './components/FoodsCategory'
+import FoodItem from './components/FoodsCategory/FoodItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchFoodsList } from './store/modules/takeaway'
 import './App.scss'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 // const foodsList = [
 //   {
@@ -72,6 +73,15 @@ const App = () => {
     dispatch(fetchFoodsList())
   },[dispatch])
 
+  const dtRef = useRef([])
+
+  const scroll = (index) =>{
+    console.log(dtRef.current[index])
+    dtRef.current[index].scrollIntoView({behavior:'smooth'})
+  }
+  useEffect(() =>{
+    // dtRef.current[0].scrollIntoView({behavior:'smooth'})
+  })
   // get FoodsList and render to the list
   // 1. useSelector
   const { foodsList, activeIndex } = useSelector(state => state.foods)
@@ -83,20 +93,29 @@ const App = () => {
       {/* 内容 */}
       <div className="content-wrap">
         <div className="content">
-          <Menu />
+          <Menu
+            scrollPage={scroll}
+          />
 
           <div className="list-content">
             <div className="goods-list">
               {/* 外卖商品列表 */}
               {foodsList.map((item, index) => {
+                console.log(dtRef)
                 return (
-                  activeIndex === index && <FoodsCategory
-                    key={item.tag}
-                    // 列表标题
-                    name={item.name}
-                    // 列表商品
-                    foods={item.foods}
-                  />
+                  <div className="category">
+                    <dl className="cate-list">
+                      <dt className="cate-title"
+                        ref={el => dtRef.current[index] = el}
+                      >{item.name}
+                      
+                      </dt>
+
+                      {item.foods.map(item => {
+                        return <FoodItem key ={item.id} {...item} />
+                      })}
+                    </dl>
+                  </div>
                 )
               })}
             </div> 
