@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { changeActiveIndex } from '../../store/modules/takeaway'
 import { useRef } from 'react'
 
-const Menu = () => {
+const Menu = ( {scrollPage} ) => {
   const { foodsList, activeIndex } = useSelector(state => state.foods)
   const dispatch = useDispatch()
   // const foodsList = [
@@ -68,16 +68,11 @@ const Menu = () => {
   
   // defined reference
   
-  
-  const categoryRefs = useRef(menus.reduce((acc,value) =>{
-    acc[value.name] = React.createRef();
-    return acc;
-  },{}))
-
-  const scroll=(index, menus) =>{
-    dispatch(changeActiveIndex(index))
-    categoryRefs.current[name].current.scrollIntoView({behavior:"smooth"})
-    
+  const scrollMethod = (index) =>{
+    if (activeIndex !== index) {  // Only dispatch if the index has changed
+      dispatch(changeActiveIndex(index));
+    }
+    // scrollPage(index)
   }
 
   const menus = foodsList.map(item => ({ tag: item.tag, name: item.name }))
@@ -86,8 +81,13 @@ const Menu = () => {
       {/* 添加active类名会变成激活状态 */}
       {menus.map((item, index) => {
         return (
+          
           <div
-            onClick={()=> scroll(index,menus)}
+            key={item.tag}
+            onClick={()=>{
+              dispatch(changeActiveIndex(index))
+              scrollPage(index)
+            }}
             className={classNames(
               'list-menu-item',
               activeIndex === index && 'active'          
