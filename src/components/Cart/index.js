@@ -1,9 +1,22 @@
 import classNames from 'classnames'
 import Count from '../Count'
 import './index.scss'
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 const Cart = () => {
+  //获取store 里面的数据
+  const { carList } = useSelector(state => state.foods)
+  //计算总价
+  // 数组的累加运算用reduce
+  const totalPrice = carList.reduce((a,c)=> a+c.price *c.count, 0)
   const cart = []
+  const totalCount = 0
+  // useEffect(() => {
+  //   totalCount = carList.map(item => {
+  //       totalCount += item.count
+  //   })
+  // })
   return (
     <div className="cartContainer">
       {/* 遮罩层 添加visible类名可以显示出来 */}
@@ -14,14 +27,14 @@ const Cart = () => {
         {/* fill 添加fill类名可以切换购物车状态*/}
         {/* 购物车数量 */}
         <div className={classNames('icon')}>
-          {true && <div className="cartCornerMark">{0}</div>}
+          {carList.length > 0 && <div className="cartCornerMark">{carList.length}</div>}
         </div>
         {/* 购物车价格 */}
         <div className="main">
           <div className="price">
             <span className="payableAmount">
               <span className="payableAmountUnit">¥</span>
-              {0.00}
+              {totalPrice.toFixed(2)}
             </span>
           </div>
           <span className="text">预估另需配送费 ¥5</span>
