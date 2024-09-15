@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { addCart, deleteCart } from '../../../store/modules/takeaway'
+import { useEffect } from 'react'
 import './index.scss'
 
 const Foods = ({
@@ -13,7 +16,17 @@ const Foods = ({
   tag,
   count
 }) => {
-
+  const dispatch = useDispatch()
+  const carList = useSelector(state=> state.foods)
+  console.log(carList.carList)
+  const getCount = () =>{
+    const item = carList.carList.find(item => item.id === id)
+    if(item){
+      return item.count
+    }else{
+      return 0
+    }
+  }
   return (
     <dd className="cate-goods">
       <div className="goods-img-wrap">
@@ -39,10 +52,37 @@ const Foods = ({
           </div>
           <div className="goods-count">
           <span className="substraction">
-              <button className="button sub-button">-</button>
+              <button className="button sub-button" onClick={()=>dispatch(deleteCart({
+                id,
+                picture,
+                name,
+                unit,
+                description,
+                food_tag_list,
+                month_saled,
+                like_ratio_desc,
+                price,
+                tag,
+                count
+
+              }))}>-</button>
             </span>
+            <div className='item-number'>{getCount()}</div>
             <span className="plus">
-              <button className="button add-button">+</button>
+              <button className="button add-button" onClick={()=>dispatch(addCart({
+                id,
+                picture,
+                name,
+                unit,
+                description,
+                food_tag_list,
+                month_saled,
+                like_ratio_desc,
+                price,
+                tag,
+                count
+
+              }))}>+</button>
             </span>
             
           </div>
