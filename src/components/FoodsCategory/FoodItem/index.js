@@ -68,7 +68,7 @@ const Foods = ({
               }))}>-</button>
             </span>
             <div className='item-number'>{getCount()}</div>
-            <span className="plus">
+            <span className="addition">
               <button className="button add-button" onClick={()=>dispatch(addCart({
                 id,
                 picture,
