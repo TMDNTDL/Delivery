@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import Count from '../Count'
 import './index.scss'
+
 import { useSelector } from 'react-redux'
 
 const Cart = () => {
@@ -65,7 +66,9 @@ const Cart = () => {
                 </div>
                 <div className="skuBtnWrapper btnGroup">
                   <Count
+                    id = {item.id}
                     count={item.count}
+
                   />
                 </div>
               </div>
