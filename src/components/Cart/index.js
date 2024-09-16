@@ -9,7 +9,6 @@ const Cart = () => {
   //计算总价
   // 数组的累加运算用reduce
   const totalPrice = carList.reduce((a,c)=> a+c.price *c.count, 0)
-  const cart = []
   
   return (
     <div className="cartContainer">
@@ -41,7 +40,7 @@ const Cart = () => {
         )}
       </div>
       {/* 添加visible类名 div会显示出来 */}
-      <div className={classNames('cartPanel')}>
+      <div className={classNames('cartPanel', 'visible')}>
         <div className="header">
           <span className="text">购物车</span>
           <span className="clearCart">
@@ -51,7 +50,7 @@ const Cart = () => {
 
         {/* 购物车列表 */}
         <div className="scrollArea">
-          {cart.map(item => {
+          {carList.map(item => {
             return (
               <div className="cartItem" key={item.id}>
                 <img className="shopPic" src={item.picture} alt="" />
